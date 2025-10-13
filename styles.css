@@ -177,12 +177,18 @@ nav {
 
 .login-btn {
     padding: var(--space-xs) var(--space-md);
-    background-color: var(--primary);
-    color: white;
+    /* background-color: var(--primary); */
+    border: 1px solid var(--primary);
+    color: var(--primary);
     border-radius: 20px;
     font-weight: 500;
+    transition: all 0.6s ease;
 }
-
+.login-btn:hover {
+    color: white;
+    background-color: var(--primary);
+    transform: translateY(-1px);
+}
 /* Hero Section */
 .hero {
     padding: var(--space-xl) 0;
@@ -1972,74 +1978,72 @@ nav {
 
 
 /* Eligibility Section */
-        .eligibility-section {
-            padding: var(--space-xl) 0;
-            background-color: #f8f9fa;
-        }
+.eligibility-section {
+    padding: var(--space-xl) 0;
+    background-color: #f8f9fa;
+}
 
-        .eligibility-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
+.eligibility-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
 
-        .eligibility-header {
-            margin-bottom: var(--space-lg);
-        }
+.eligibility-header {
+    margin-bottom: var(--space-lg);
+}
 
-        .eligibility-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: var(--space-md);
-        }
+.eligibility-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-md);
+}
 
-        .eligibility-header p {
-            font-size: 1.125rem;
-            color: var(--text-light);
-        }
+.eligibility-header p {
+    font-size: 1.125rem;
+    color: var(--text-light);
+}
 
-        .eligibility-card {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: var(--space-xl);
-            box-shadow: var(--shadow);
-            max-width: 600px;
-            margin: 0 auto;
-        }
+.eligibility-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow);
+    max-width: 600px;
+    margin: 0 auto;
+}
 
-        .eligibility-list {
-            list-style-type: none;
-            text-align: left;
-            margin-bottom: var(--space-lg);
-        }
+.eligibility-list {
+    list-style-type: none;
+    text-align: left;
+    margin-bottom: var(--space-lg);
+}
 
-        .eligibility-list li {
-            padding: var(--space-sm) 0;
-            color: var(--text);
-            position: relative;
-            padding-left: var(--space-lg);
-            font-size: 1.125rem;
-        }
+.eligibility-list li {
+    padding: var(--space-sm) 0;
+    color: var(--text);
+    position: relative;
+    padding-left: var(--space-lg);
+    font-size: 1.125rem;
+}
 
-        .eligibility-list li:before {
-            content: "•";
-            color: var(--primary);
-            position: absolute;
-            left: 0;
-            font-size: 2rem;
-            line-height: 1;
-        }
+.eligibility-list li:before {
+    content: "•";
+    color: var(--primary);
+    position: absolute;
+    left: 0;
+    font-size: 2rem;
+    line-height: 1;
+}
 
-        .eligibility-note {
-            font-style: italic;
-            color: var(--text-light);
-            border-top: 1px solid var(--border);
-            padding-top: var(--space-md);
-            font-size: 1.125rem;
-        }
+.eligibility-note {
+    font-style: italic;
+    color: var(--text-light);
+    border-top: 1px solid var(--border);
+    padding-top: var(--space-md);
+    font-size: 1.125rem;
+}
 
-        /* ============================================
-   IMPROVED CTA SECTION 
-   ============================================ */
+/* CTA SECTION */
 .cta-section {
     padding: var(--space-xl) 0;
     background-color: var(--background);
@@ -2162,9 +2166,7 @@ nav {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* ============================================
-   IMPROVED CONTACT SECTION 
-   ============================================ */
+/* CONTACT SECTION */
 .contact-section {
     padding: var(--space-xl) 0;
     background-color: #f8f9fa;
@@ -2307,10 +2309,162 @@ nav {
     background-color: rgba(142, 17, 205, 0.05);
 }
 
-/* ============================================
-   IMPROVED FOOTER SECTION 
-   ============================================ */
-.footer-section {
+
+
+/* Registration Form Section */
+.registration-section {
+    padding: var(--space-xl) 0;
+    background-color: var(--background);
+}
+
+.registration-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.registration-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-md);
+    color: var(--text);
+}
+
+.registration-header p {
+    font-size: 1.125rem;
+    color: var(--text-light);
+}
+
+.registration-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: var(--space-lg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: var(--space-xs);
+}
+
+.form-group input,
+.form-group select {
+    padding: var(--space-sm);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-family: var(--font-family);
+    color: var(--text);
+    background-color: #f9fafb;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 5px rgba(143, 17, 205, 0.3);
+}
+
+.form-group input::placeholder {
+    color: var(--text-light);
+    opacity: 0.7;
+}
+
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right var(--space-sm) center;
+    background-size: 1em;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary);
+}
+
+.checkbox-group label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.checkbox-group label a {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.checkbox-group label a:hover {
+    color: color-mix(in srgb, var(--primary) 80%, black);
+}
+
+.registration-form .btn-primary {
+    padding: var(--space-sm) var(--space-lg);
+    font-size: 1.125rem;
+    font-weight: 600;
+    background-color: var(--primary);
+    color: white;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.registration-form .btn-primary:hover {
+    background-color: color-mix(in srgb, var(--primary) 90%, black);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .registration-header h2 {
+        font-size: 2rem;
+    }
+
+    .registration-header p {
+        font-size: 1rem;
+    }
+
+    .registration-form-container {
+        padding: var(--space-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .registration-header h2 {
+        font-size: 1.75rem;
+    }
+
+    .registration-form .btn-primary {
+        font-size: 1rem;
+        padding: var(--space-xs) var(--space-md);
+    }
+}
+
+/*FOOTER SECTION */
+ .footer-section {
     padding: var(--space-xl) 0 var(--space-lg);
     background-color: var(--background);
     border-top: 1px solid var(--border);

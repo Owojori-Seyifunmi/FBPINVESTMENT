@@ -158,7 +158,7 @@ document.getElementById('event-registration-form').addEventListener('submit', fu
     }
 
     const message = `Event Registration:%0AName: ${encodeURIComponent(fullName)}%0AEmail: ${encodeURIComponent(email)}%0APhone: ${encodeURIComponent(phone)}%0AProperty Status: ${encodeURIComponent(propertyStatus)}%0AEvent Date: ${encodeURIComponent(eventDate)}`;
-    const whatsappUrl = `https://wa.me/+2347041001960?text=${message}`;
+    const whatsappUrl = `https://wa.me/+447957730555?text=${message}`;
     
     window.open(whatsappUrl, '_blank');
 });

@@ -878,7 +878,6 @@ nav {
         }
 
 
-
 /* SOLUTION SECTION START */
 .solution-section {
     padding: var(--space-xl) 0;
@@ -1284,10 +1283,6 @@ nav {
 
 
 
-
-
-
-
         /* ABOUT SECTION START*/
         .about-section {
             padding: var(--space-xl) 0;
@@ -1676,7 +1671,7 @@ nav {
     background-image: radial-gradient(ellipse 65% 90% at 100% 50%, rgba(216, 125, 60, 0.153), transparent);
     border: 1px solid var(--text);
     border-radius: 20px;
-    padding: var(--space-lg);
+    padding: var(--space-md);
     box-shadow: var(--shadow);
     display: flex;
     flex-direction: column;
@@ -1685,6 +1680,11 @@ nav {
 
 .venue-info {
     margin-bottom: var(--space-lg);
+}
+.venue-info img{
+    width: 50px;
+    border-radius: var(--border-radius);
+    margin-bottom: var(--space-md);
 }
 
 .venue-info h3 {

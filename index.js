@@ -133,3 +133,160 @@ document.getElementById('event-registration-form').addEventListener('submit', fu
     
     window.open(whatsappUrl, '_blank');
 });
+
+
+
+// YouTube IFrame API
+let player;
+let isPlaying = true;
+let isMuted = true;
+
+// Load YouTube IFrame API
+function onYouTubeIframeAPIReady() {
+    const iframe = document.getElementById('heroVideo');
+    if (iframe) {
+        player = new YT.Player('heroVideo', {
+            events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+            }
+        });
+    }
+}
+
+// Player ready event
+function onPlayerReady(event) {
+    // Video will autoplay due to autoplay parameter in iframe src
+    isPlaying = true;
+    isMuted = true;
+    updatePlayPauseButton();
+    updateMuteButton();
+}
+
+// Player state change event
+function onPlayerStateChange(event) {
+    if (event.data === YT.PlayerState.PLAYING) {
+        isPlaying = true;
+        updatePlayPauseButton();
+    } else if (event.data === YT.PlayerState.PAUSED) {
+        isPlaying = false;
+        updatePlayPauseButton();
+    }
+}
+
+// Update play/pause button icon
+function updatePlayPauseButton() {
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    if (playPauseBtn) {
+        const icon = playPauseBtn.querySelector('i');
+        if (icon) {
+            if (isPlaying) {
+                icon.className = 'fas fa-pause';
+                playPauseBtn.setAttribute('aria-label', 'Pause');
+            } else {
+                icon.className = 'fas fa-play';
+                playPauseBtn.setAttribute('aria-label', 'Play');
+            }
+        }
+    }
+}
+
+// Update mute button icon
+function updateMuteButton() {
+    const muteBtn = document.getElementById('muteBtn');
+    if (muteBtn) {
+        const icon = muteBtn.querySelector('i');
+        if (icon) {
+            if (isMuted) {
+                icon.className = 'fas fa-volume-mute';
+                muteBtn.setAttribute('aria-label', 'Unmute');
+            } else {
+                icon.className = 'fas fa-volume-up';
+                muteBtn.setAttribute('aria-label', 'Mute');
+            }
+        }
+    }
+}
+
+// Toggle play/pause
+function togglePlayPause() {
+    if (player && player.getPlayerState) {
+        if (isPlaying) {
+            player.pauseVideo();
+            isPlaying = false;
+        } else {
+            player.playVideo();
+            isPlaying = true;
+        }
+        updatePlayPauseButton();
+    }
+}
+
+// Toggle mute/unmute
+function toggleMute() {
+    if (player && player.isMuted) {
+        if (isMuted) {
+            player.unMute();
+            isMuted = false;
+        } else {
+            player.mute();
+            isMuted = true;
+        }
+        updateMuteButton();
+    }
+}
+
+// Wait for DOM to load
+document.addEventListener('DOMContentLoaded', function() {
+    // Load YouTube IFrame API
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // Add event listener to play/pause button
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    if (playPauseBtn) {
+        playPauseBtn.addEventListener('click', togglePlayPause);
+    }
+
+    // Add event listener to mute button
+    const muteBtn = document.getElementById('muteBtn');
+    if (muteBtn) {
+        muteBtn.addEventListener('click', toggleMute);
+    }
+
+    // Form submission handler
+    const registrationForm = document.querySelector('.registration-form');
+    if (registrationForm) {
+        registrationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(registrationForm);
+            const data = Object.fromEntries(formData);
+            
+            console.log('Form submitted with data:', data);
+            
+            // Show success message
+            alert('Thank you for registering! We will send you the event details via email shortly.');
+            
+            // Reset form
+            registrationForm.reset();
+        });
+    }
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+});
